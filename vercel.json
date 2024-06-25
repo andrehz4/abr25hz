@@ -1,0 +1,9 @@
+{
+    "builds": [
+      { "src": "calc-app-frontend/package.json", "use": "@vercel/static-build", "config": { "distDir": "build" } }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "calc-app-frontend/$1" }
+    ]
+  }
+  
