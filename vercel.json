@@ -1,9 +1,27 @@
 {
+    "version": 2,
     "builds": [
-      { "src": "calc-app-frontend/package.json", "use": "@vercel/static-build", "config": { "distDir": "build" } }
+      {
+        "src": "calc-app-frontend/package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "calc-app-frontend/build"
+        }
+      },
+      {
+        "src": "calc-app-backend/package.json",
+        "use": "@vercel/node"
+      }
     ],
     "routes": [
-      { "src": "/(.*)", "dest": "calc-app-frontend/$1" }
+      {
+        "src": "/api/(.*)",
+        "dest": "calc-app-backend/index.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "calc-app-frontend/$1"
+      }
     ]
   }
   
