@@ -2,25 +2,17 @@
     "version": 2,
     "builds": [
       {
-        "src": "calc-app-frontend/package.json",
+        "src": "package.json",
         "use": "@vercel/static-build",
         "config": {
-          "distDir": "calc-app-frontend/build"
+          "distDir": "build"
         }
-      },
-      {
-        "src": "calc-app-backend/package.json",
-        "use": "@vercel/node"
       }
     ],
     "routes": [
       {
-        "src": "/api/(.*)",
-        "dest": "calc-app-backend/index.js"
-      },
-      {
         "src": "/(.*)",
-        "dest": "calc-app-frontend/$1"
+        "dest": "/index.html"
       }
     ]
   }
